@@ -10,14 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    page: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
   });
 
   return Bookmark;

@@ -13,8 +13,7 @@ Bookmark.belongsTo(User, {
 const addBookmark = async (req, res) => {
   console.log('addBookmark');
   let bookmarkObject = {
-    name: req.body.name,
-    page: req.body.page,
+    bookId: req.body.bookId,
   };
 
   const bookmark = await Bookmark.create(bookmarkObject);
@@ -31,9 +30,13 @@ const getBookmark = async (req, res) => {
   console.log('getBookmark');
   let id = req.params.id;
   let bookmark = await Bookmark.findAll({
-    where: { id: id },
+    where: { bookId: id },
   });
-  res.status(200).send(bookmark);
+  if (!bookmark.length) {
+    res.status(404).send();
+  } else {
+    res.status(200).send(bookmark);
+  }
 };
 
 const updateBookmark = async (req, res) => {

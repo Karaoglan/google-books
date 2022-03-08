@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FloatingLabel, Button, Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 
 export default function Bookmarks() {
   return (

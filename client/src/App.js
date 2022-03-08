@@ -4,6 +4,7 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BookSearch from './BookSearch';
 import Bookmarks from './Bookmarks';
+import { Login } from './Login';
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/booksearch">Book Search</Nav.Link>
             <Nav.Link href="/bookmarks">Booksmark</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
           </Nav>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
@@ -42,6 +44,7 @@ function App() {
               <PrivateRoute path="/update-profile" component={UpdateProfile} /> */}
               <Route path="/bookmarks" element={<Bookmarks />} />
               <Route path="/booksearch" element={<BookSearch />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </Router>
         </div>
