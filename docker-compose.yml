@@ -1,13 +1,26 @@
-database:
-    image: mysql:5.7
-    ports:
-        - "3309:3306"
-    command: --init-file /data/application/init.sql
-    volumes:
-        - ./init.sql:/data/application/init.sql
-    environment:
-        MYSQL_ROOT_USER: root
-        MYSQL_ROOT_PASSWORD: pass
-        MYSQL_DATABASE: bookmark_db
-        MYSQL_USER: karaoglan
-        MYSQL_PASSWORD: password
+version: '3.7'
+services:
+    bookmark-server:
+        container_name: bookmark_server
+        build: ./server
+        ports:
+            - "8082:8082"
+    bookmark-client:
+        container_name: bookmark_client
+        build: ./client
+        ports:
+            - "3000:3000"
+    bookmark-database:
+        container_name: bookmark_db
+        image: mysql:5.7
+        ports:
+            - "3309:3306"
+        command: --init-file /data/application/init.sql
+        volumes:
+            - ./init.sql:/data/application/init.sql
+        environment:
+            MYSQL_ROOT_USER: root
+            MYSQL_ROOT_PASSWORD: pass
+            MYSQL_DATABASE: bookmark_db
+            MYSQL_USER: karaoglan
+            MYSQL_PASSWORD: password
